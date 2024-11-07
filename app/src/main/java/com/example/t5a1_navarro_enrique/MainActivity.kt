@@ -3,6 +3,9 @@ package com.example.t5a1_navarro_enrique
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -57,7 +60,8 @@ class MainActivity : AppCompatActivity(),OnClickListener {
     }
 
     override fun onClick(comida: Comida) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(comida.wiki))
+        val intent = Intent(this, webView::class.java)
+        intent.putExtra("wiki", comida.wiki)
         startActivity(intent)
 
     }
